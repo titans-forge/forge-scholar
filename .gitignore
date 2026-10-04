@@ -4,6 +4,8 @@ __pycache__/
 *.pyc
 *.sqlite*
 *.db
+*.duckdb
+*.duckdb.wal
 .env*
 data/
 state/
@@ -11,3 +13,4 @@ evaluation_reports/
 node_modules/
 dist/
 *.egg-info/
+.DS_Store

@@ -1,0 +1,3 @@
+# Verified standalone classroom runtime. Optional file readers are separate.
+duckdb==1.5.3
+streamlit==1.56.0

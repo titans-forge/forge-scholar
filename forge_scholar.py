@@ -5,13 +5,14 @@ forge_scholar.py — Titans Forge Scholar: Student Learning OS backend
 All database schema, CRUD helpers, mastery engine, quiz generation prompts,
 study plan logic, and system-prompt routing for the Scholar education product.
 
-Storage: medical_vault/scholar.duckdb  (separate from clinical medical_master.duckdb)
+Storage: platform user-data directory, or an explicit FORGE_SCHOLAR_DB file.
+No existing Vault database is selected automatically.
 
 Architecture
 ────────────
   • forge_scholar.py  → pure backend: schema + helpers + prompt builders
-  • pages/19–23       → Streamlit UI consuming this module
-  • forge_config.query_local() → Ollama inference (no MLX by default)
+  • app.py           → standalone fictional classroom demonstration
+  • prompt builders → optional model integrations supplied by the caller
 
 Education Levels
 ────────────────
@@ -37,10 +38,10 @@ from pathlib import Path
 from typing import Any
 
 import duckdb
+from forge_scholar_config import resolve_database_path
 
 # ── DB path ───────────────────────────────────────────────────────────────────
-VAULT_ROOT   = Path.home() / "Vault"
-SCHOLAR_DB   = VAULT_ROOT / "medical_vault" / "scholar.duckdb"
+SCHOLAR_DB = resolve_database_path()
 
 # ── Education level constants ─────────────────────────────────────────────────
 EDU_LEVELS = ["elementary", "middle", "high", "college", "professional"]
