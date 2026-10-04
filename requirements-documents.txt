@@ -1,0 +1,4 @@
+# Optional: only needed when calling extract_text_from_file for PDF/DOCX files.
+PyMuPDF>=1.24,<2.0
+pdfminer.six>=20240706
+python-docx>=1.1,<2.0
